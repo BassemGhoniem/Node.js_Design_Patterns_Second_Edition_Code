@@ -22,7 +22,7 @@ subSocket.subscribe('chat');
 
 subSocket.on('message', msg => {
   console.log(`From other server: ${msg}`);
-  broadcast(msg.toString().split(' ')[1]);
+  broadcast(msg.toString().replace('chat ', ''));
 });
 
 const wss = new WebSocketServer({server: server});
